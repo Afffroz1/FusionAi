@@ -1,0 +1,504 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+
+  --primary: #ff3db8;
+  --primary-foreground: #ffffff;
+
+  --secondary: #18181b;
+  --secondary-foreground: #ffffff;
+
+  --muted: #111111;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #b0007a;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+
+  --border: rgba(255,255,255,0.08);
+  --input: rgba(255,255,255,0.08);
+  --ring: #ff3db8;
+
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+
+    min-height: 100vh;
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(176, 0, 122, 0.18),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(48, 79, 254, 0.15),
+        transparent 25%
+      ),
+      #050505;
+  }
+}
+
+@layer utilities {
+
+  .fusion-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    transition: all .3s ease;
+  }
+
+  .fusion-card:hover {
+    border-color: rgba(255,61,184,.35);
+
+    box-shadow:
+      0 0 30px rgba(255,61,184,.08);
+  }
+
+  .fusion-gradient {
+    background:
+      linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #ff3db8 50%,
+        #b0007a 100%
+      );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .fusion-neon-glow {
+    text-shadow:
+      0 0 8px rgba(255,61,184,.25),
+      0 0 20px rgba(176,0,122,.15);
+  }
+
+  .fusion-button {
+    background:
+      linear-gradient(
+        135deg,
+        #ff3db8,
+        #b0007a
+      );
+
+    color: white;
+    border: none;
+    transition: all .3s ease;
+  }
+
+  .fusion-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 0 25px rgba(255,61,184,.35);
+  }
+
+ 
+
+  .fusion-logo-text {
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+  .fusion-logo-box {
+
+  position: relative;
+
+  width: 280px;
+
+  height: 280px;
+
+  border: 2px solid rgba(255,255,255,.85);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.05),
+      rgba(255,255,255,.01)
+    );
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 0 60px rgba(176,0,122,.12),
+    inset 0 0 30px rgba(255,255,255,.04);
+
+}
+
+.fusion-logo-grid {
+
+  position: absolute;
+
+  inset: 0;
+
+  
+  display: flex;
+  
+
+  
+  flex-direction: column;
+  
+
+  
+  justify-content: center;
+  
+
+  
+  align-items: center;
+  
+
+  
+  font-size: 5.5rem;
+  
+
+  
+  font-weight: 900;
+  
+
+  
+  line-height: .82;
+  
+
+  
+  letter-spacing: -.08em;
+  
+
+  
+  color: white;
+  
+
+  
+  text-transform: uppercase;
+  
+
+  
+  z-index: 2;
+  
+
+  
+}
+
+
+
+.fusion-logo-grid span {
+  
+
+  
+  background:
+  
+    linear-gradient(
+      
+      180deg,
+      
+      #ffffff,
+      
+      #d7d7d7
+      
+    );
+    
+
+    
+  -webkit-background-clip: text;
+  
+
+  
+  background-clip: text;
+  
+
+  
+  color: transparent;
+  
+
+  
+}
+
+
+
+.fusion-logo-tagline {
+  
+
+  
+  margin-top: 18px;
+  
+
+  
+  font-size: .9rem;
+  
+
+  
+  letter-spacing: .35em;
+  
+
+  
+  text-transform: uppercase;
+  
+
+  
+  color: rgba(255,255,255,.65);
+  
+
+  
+}
+
+
+
+.fusion-logo-shine {
+  
+
+  
+  position: absolute;
+  
+
+  
+  top: -100%;
+  
+
+  
+  left: -40%;
+  
+
+  
+  width: 40%;
+  
+
+  
+  height: 300%;
+  
+
+  
+  background:
+  
+
+  
+    linear-gradient(
+      
+      90deg,
+      
+      transparent,
+      
+      rgba(255,255,255,.25),
+      
+      transparent
+      
+    );
+    
+
+    
+  transform: rotate(25deg);
+  
+
+  
+  animation: logoShine 6s infinite;
+  
+
+  
+}
+
+
+
+@keyframes logoShine {
+  
+
+  
+  0% {
+    
+    left: -50%;
+    
+  }
+  
+
+  
+  100% {
+    
+    left: 140%;
+    
+  }
+  
+
+  
+}
+/* =========================
+   FUSION LUXURY LOGO
+========================= */
+
+.fusion-logo-box {
+  position: relative;
+
+  width: 320px;
+  height: 320px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 3px solid rgba(255,255,255,.9);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.01)
+    );
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 0 30px rgba(255,61,184,.08);
+
+  overflow: hidden;
+}
+
+/* glossy reflection */
+
+.fusion-logo-shine {
+  position: absolute;
+
+  top: -60%;
+  left: -60%;
+
+  width: 120%;
+  height: 120%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255,255,255,.10) 45%,
+      transparent 40%
+    );
+
+  transform: rotate(25deg);
+
+  pointer-events: none;
+}
+
+/* FUS / ION layout */
+
+.fusion-logo-grid {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-weight: 900;
+
+  letter-spacing: -.08em;
+
+  line-height: .82;
+}
+
+.fusion-logo-grid span:first-child {
+  font-size: 7rem;
+}
+
+.fusion-logo-grid span:last-child {
+  font-size: 7rem;
+}
+
+/* luxury perfume text */
+
+.fusion-logo-tagline {
+  margin-top: 1rem;
+
+  color: rgba(255,255,255,.85);
+
+  font-size: .95rem;
+
+  font-weight: 600;
+
+  letter-spacing: .35em;
+
+  text-transform: uppercase;
+}
+
+/* hover */
+
+.fusion-logo-box:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 40px rgba(255,61,184,.15),
+    0 0 80px rgba(91,124,255,.10);
+
+  transition: .4s ease;
+}
+}
