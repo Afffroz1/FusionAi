@@ -3,8 +3,7 @@
 //import { ArrowRight } from "lucide-react";
 // import ChatMessage from "./ChatMessage";
 import { recommendPerfume } from "@/lib/recommendation/recommendPerfume";
-import { extractIntent } from "@/lib/ai/extractIntent";
-import { buildPrompt } from "@/lib/ai/buildPrompt";
+
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
